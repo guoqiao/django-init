@@ -8,18 +8,6 @@ from django.contrib.contenttypes import generic
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 
-class TaggedSnippet(TaggedItemBase):
-    content_object = models.ForeignKey('Snippet')
-
-class Snippet(models.Model):
-    title = models.CharField(max_length=128)
-    code = models.TextField()
-    desc = models.TextField()
-    tags = TaggableManager(blank=True, through=TaggedSnippet)
-    user = models.ForeignKey(User)
-    create = models.DateTimeField(auto_now_add=True)
-    update = models.DateTimeField(auto_now=True)
-
 class BaseGenericModel(models.Model):
     content_type   = models.ForeignKey(ContentType)
     object_id      = models.PositiveIntegerField()
@@ -53,6 +41,18 @@ class Score(BaseGenericModel):
 
     user = models.ForeignKey(User)
     create = models.DateTimeField(auto_now_add=True)
+
+class TaggedSnippet(TaggedItemBase):
+    content_object = models.ForeignKey('Snippet')
+
+class Snippet(models.Model):
+    title = models.CharField(max_length=128)
+    code = models.TextField()
+    desc = models.TextField()
+    tags = TaggableManager(blank=True, through=TaggedSnippet)
+    user = models.ForeignKey(User)
+    create = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
 
 admin.site.register(Snippet)
 admin.site.register(Comment)

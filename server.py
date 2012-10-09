@@ -31,6 +31,9 @@ def render_conf(tmpl,args,dest):
 SV_CONF_TMPL = """
 [program:{{PROGRAM}}]
 command = {{COMMAND}}
+autostart=true
+autorestart=true
+redirect_stderr=true
 """
 
 def render_conf_sv(program,command):

@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'taggit',
+    'crispy_forms',
     'django_wsgiserver',
 
     'accounts',

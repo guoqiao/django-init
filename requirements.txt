@@ -1,6 +1,7 @@
 Django
 django-wsgiserver
 django-taggit
+django-crispy-forms
 
 #celery
 #django-celery

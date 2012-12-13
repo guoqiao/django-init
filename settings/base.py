@@ -133,9 +133,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
-    'taggit',
     'crispy_forms',
-    'django_wsgiserver',
+    'gunicorn',
 
     'accounts',
     'main',

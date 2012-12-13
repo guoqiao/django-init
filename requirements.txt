@@ -1,6 +1,5 @@
 Django
-django-wsgiserver
-django-taggit
+gunicorn
 django-crispy-forms
 
 #celery

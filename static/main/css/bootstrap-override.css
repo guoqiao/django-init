@@ -29,6 +29,11 @@ a:hover, a:focus, a:active { color: #0c4c9d; }
 
 .navbar .nav > li > a {
     color: white;
+    text-shadow: 0 0 0 white;
+}
+
+.navbar .brand {
+    text-shadow: 0 0 0 white;
 }
 
 .navbar .nav a:hover, .navbar .nav a:focus, .navbar .nav .active > a, .navbar .nav .active > a:hover {

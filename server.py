@@ -12,7 +12,7 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 PYTHON = os.path.join(HERE,'ENV/bin/python')
 MANAGE = os.path.join(HERE,'manage.py')
 CONF = (
-    ('pin','runwsgiserver host=0.0.0.0 port=8090'),
+    ('pin','run_gunicorn 0.0.0.0:8090'),
 )
 
 def render_conf(tmpl,args,dest):

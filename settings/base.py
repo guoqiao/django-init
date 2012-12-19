@@ -134,7 +134,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'crispy_forms',
-    'gunicorn',
+    'gunicorn', # unix only
+    'django_wsgiserver', # for windows
 
     'settingz',
     'accounts',

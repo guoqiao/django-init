@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'gunicorn',
 
+    'settingz',
     'accounts',
     'main',
 )

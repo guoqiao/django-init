@@ -7,11 +7,13 @@ DEBUG = False
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-STATIC_ROOT = '/var/www/ship/static/'
-MEDIA_ROOT  = '/var/www/ship/media/'
+STATIC_ROOT = '/var/www/%s/static/' % PROJECT_NAME
+MEDIA_ROOT  = '/var/www/%s/media/'  % PROJECT_NAME
 
-STATIC_URL = 'http://iot.insigma.com.cn/ship/static/'
-MEDIA_URL  = 'http://iot.insigma.com.cn/ship/media/'
+HOST = 'http://iot.insigma.com.cn'
+
+STATIC_URL = '%s/%s/static/' % (HOST,PROJECT_NAME)
+MEDIA_URL  = '%s/%s/media/' %  (HOST,PROJECT_NAME)
 
 MIDDLEWARE_CLASSES += ()   # Add extra classes here
 INSTALLED_APPS += ()       # Add extra a/pps here

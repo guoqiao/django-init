@@ -6,6 +6,7 @@ TEMPLATE_DEBUG = DEBUG
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.normpath(os.path.join(HERE, '../'))
+PROJECT_NAME = PROJECT_ROOT.split(os.sep)[-1]
 APPS_ROOT = os.path.join(PROJECT_ROOT, 'apps')
 
 sys.path.insert(0, PROJECT_ROOT)

@@ -11,6 +11,9 @@ class RangeInput(forms.widgets.TextInput):
 class SearchInput(forms.widgets.TextInput):
     input_type = 'search'
 
+class EmailInput(forms.widgets.TextInput):
+    input_type = 'email'
+
 class CrispyForm(forms.Form):
 
     copy = forms.IntegerField(

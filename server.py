@@ -9,8 +9,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = "settings"
 from django.conf import settings
 
 HERE = os.path.abspath(os.path.dirname(__file__))
-PYTHON = os.path.join(HERE,'ENV/bin/python')
-MANAGE = os.path.join(HERE,'manage.py')
 CONF = (
     ('pin','run_gunicorn 0.0.0.0:8090'),
 )
@@ -31,14 +29,16 @@ def render_conf(tmpl,args,dest):
 SV_CONF_TMPL = """
 [program:{{PROGRAM}}]
 command = {{COMMAND}}
-autostart=true
-autorestart=true
-redirect_stderr=true
+directory = {{CWD}}
+autostart = true
+autorestart = true
+redirect_stderr = true
+user = www-data
 """
 
 def render_conf_sv(program,command):
-    command = '%s %s %s' % (PYTHON,MANAGE,command)
-    args = {'PROGRAM':program, 'COMMAND':command}
+    command = 'python manage.py %s' % (command,)
+    args = {'PROGRAM':program, 'COMMAND':command, 'CWD':HERE}
     dest = '/etc/supervisor/conf.d/%s.conf' % program
 
     render_conf(SV_CONF_TMPL,args,dest)

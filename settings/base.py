@@ -5,7 +5,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.normpath(os.path.join(HERE, '../'))
+PROJECT_ROOT = os.path.normpath(os.path.join(HERE, '..'))
 PROJECT_NAME = PROJECT_ROOT.split(os.sep)[-1]
 APPS_ROOT = os.path.join(PROJECT_ROOT, 'apps')
 
@@ -169,7 +169,14 @@ LOGGING = {
 LOGIN_REDIRECT_URL = '/'
 
 FIXTURE_DIRS = (
-    os.path.join(PROJECT_ROOT, 'fixtures/'),
+    os.path.join(PROJECT_ROOT, 'fixtures'),
 )
 
 DATETIME_FORMAT = 'Y-m-d H:i'
+
+# == EMAIL ==
+EMAIL_HOST='smtp.insigma.com.cn'
+EMAIL_PORT='587'
+EMAIL_HOST_USER='spig@insigma.com.cn'
+EMAIL_HOST_PASSWORD='********' # fill this in local.py
+DEFAULT_FROM_EMAIL='spig@insigma.com.cn'

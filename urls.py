@@ -11,7 +11,6 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'main.views.index', name='home'),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
-    url(r'^main/', include('main.urls', namespace='main')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

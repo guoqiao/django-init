@@ -6,4 +6,5 @@
 *~
 local_settings.py
 local.py
+which.py
 ENV

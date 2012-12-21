@@ -140,7 +140,7 @@ INSTALLED_APPS = (
 
     'settingz',
     'accounts',
-    'main',
+    'base',
 )
 
 # A sample logging configuration. The only tangible logging

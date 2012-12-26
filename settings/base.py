@@ -184,3 +184,4 @@ EMAIL_HOST_PASSWORD='123456' # fill this in local.py
 DEFAULT_FROM_EMAIL='spig@insigma.com.cn'
 EMAIL_SUBJECT_PREFIX='[Django]'
 EMAIL_USE_TLS=False
+EMAIL_BACKEND = "mailer.backend.DbBackend"

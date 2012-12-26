@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.core import mail
 from django.conf import settings
 from django.shortcuts import render as r
-from django.shortcuts import redirect
+#from django.shortcuts import redirect
 
 APP_NAME = os.path.split(os.path.dirname(__file__))[-1]
 
@@ -26,7 +26,7 @@ def index(request):
             headers = {'Reply-To': 'huxiaomao@insigma.com.cn'},
             )
     x = os.path.join(settings.PROJECT_ROOT,'README.md')
-    y = os.path.join(settings.PROJECT_ROOT,'a.jpg')
+    y = os.path.join(settings.PROJECT_ROOT,'manage.py')
     email.attach_file(x)
     email.attach_file(y)
     email.send()

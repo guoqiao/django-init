@@ -1,4 +1,4 @@
-# Django settings for main project.
+### Django settings for main project.
 import os, sys
 
 DEBUG = True
@@ -13,7 +13,8 @@ sys.path.insert(0, PROJECT_ROOT)
 sys.path.insert(0, APPS_ROOT)
 
 ADMINS = (
-    ('Guo Qiao', 'guoqiao@gmail.com'),
+    ('Joe Qiao', 'guoqiao@gmail.com'),
+    ('Guo Qiao', 'guoqiao@insigma.com.cn'),
 )
 
 MANAGERS = ADMINS
@@ -54,7 +55,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -81,7 +82,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'static/'),
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -119,7 +120,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'templates/'),
+    os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -137,6 +138,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'gunicorn', # unix only
     'django_wsgiserver', # for windows
+    'mailer',
 
     'settingz',
     'accounts',
@@ -176,7 +178,9 @@ DATETIME_FORMAT = 'Y-m-d H:i'
 
 # == EMAIL ==
 EMAIL_HOST='smtp.insigma.com.cn'
-EMAIL_PORT='587'
+EMAIL_PORT=587
 EMAIL_HOST_USER='spig@insigma.com.cn'
-EMAIL_HOST_PASSWORD='********' # fill this in local.py
+EMAIL_HOST_PASSWORD='123456' # fill this in local.py
 DEFAULT_FROM_EMAIL='spig@insigma.com.cn'
+EMAIL_SUBJECT_PREFIX='[Django]'
+EMAIL_USE_TLS=False

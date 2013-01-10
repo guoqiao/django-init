@@ -2,6 +2,13 @@
 # -*- coding: UTF-8 -*-
 
 from base import *
+import os
+
+import logging
+FMT = '%(asctime)s - %(levelname)s - %(message)s'
+FILE = os.path.join(PROJECT_ROOT,'log.txt')
+#CRITICAL ERROR WARNING INFO DEBUG
+logging.basicConfig(filename=FILE, level=logging.WARNING, format=FMT)
 
 DEBUG = False
 

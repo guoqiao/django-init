@@ -1,20 +1,21 @@
 ### Django settings for main project.
 import os, sys
+from path import path
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.normpath(os.path.join(HERE, '..'))
-PROJECT_NAME = PROJECT_ROOT.split(os.sep)[-1]
-APPS_ROOT = os.path.join(PROJECT_ROOT, 'apps')
+FILE = path(os.path.abspath(__file__))
+HERE = FILE.parent
+PROJ_ROOT = HERE.parent
+PROJ_NAME = PROJ_ROOT.name
+APPS_ROOT = PROJ_ROOT/'apps'
 
-sys.path.insert(0, PROJECT_ROOT)
+sys.path.insert(0, PROJ_ROOT)
 sys.path.insert(0, APPS_ROOT)
 
 ADMINS = (
-    ('Joe Qiao', 'guoqiao@gmail.com'),
-    ('Guo Qiao', 'guoqiao@insigma.com.cn'),
+    ('Guo Qiao', 'guoqiao@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -22,7 +23,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(PROJECT_ROOT,'dev.db'),                      # Or path to database file if using sqlite3.
+        'NAME': PROJ_ROOT/'dev.db',   # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -55,7 +56,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_ROOT = PROJ_ROOT/'media'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -82,7 +83,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'static'),
+    PROJ_ROOT/'static',
 )
 
 # List of finder classes that know how to find static files in
@@ -120,7 +121,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'templates'),
+    PROJ_ROOT/'templates',
 )
 
 INSTALLED_APPS = (
@@ -171,7 +172,7 @@ LOGGING = {
 LOGIN_REDIRECT_URL = '/'
 
 FIXTURE_DIRS = (
-    os.path.join(PROJECT_ROOT, 'fixtures'),
+    PROJ_ROOT/'fixtures',
 )
 
 DATETIME_FORMAT = 'Y-m-d H:i'

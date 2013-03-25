@@ -9,3 +9,4 @@ django-crispy-forms
 
 #python-ldap
 #django-auth-ldap
+git+https://github.com/jaraco/path.py.git

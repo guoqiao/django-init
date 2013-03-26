@@ -3,19 +3,25 @@ from django.shortcuts import render,redirect
 from . import models as m
 from . import forms  as f
 
+import os
+from path import path
+FILE = path(os.path.abspath(__file__))
+APP_ROOT = FILE.parent
+APP_NAME = APP_ROOT.name
+
 # auto get app name and tmpl name
 def auto_render(function):
     def wrapper(request, *args, **kwargs):
         output = function(request, *args, **kwargs)
         if not isinstance(output, dict):
             return output
-        s = '%s/%s.html' % (m.APP_NAME,function.__name__)
+        s = '%s/%s.html' % (APP_NAME,function.__name__)
         return render(request,s,output)
     return wrapper
 
 # auto add namespace
 def auto_redirect(url_name,**kwargs):
-    s = '%s:%s' % (m.APP_NAME,url_name)
+    s = '%s:%s' % (APP_NAME,url_name)
     return redirect(s,**kwargs)
 
 @auto_render
